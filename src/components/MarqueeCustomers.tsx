@@ -7,8 +7,10 @@ export interface MarqueeLogo {
   href?: string;
 }
 
-export const MarqueeComponent = ({ logosTop }: { logosTop: MarqueeLogo[] }) => {
-  const cardsTop = logosTop.map((item: MarqueeLogo, index: number) => {
+export const MarqueeComponent = ({
+  logosTop = [],
+}: { logosTop?: MarqueeLogo[] } = {}) => {
+  const cardsTop = logosTop?.map((item: MarqueeLogo, index: number) => {
     const logo = <img key={index} src={item.src} className={item.class} />;
     if (item.href !== undefined) {
       return (
